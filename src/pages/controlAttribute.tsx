@@ -1,5 +1,8 @@
 const ControlAttribute = () => {
-	return <div>ControlAttribute</div>;
+	return <div>
+		
+		<h1>ControlAttribute</h1>
+		</div>;
 };
 
 export default ControlAttribute;

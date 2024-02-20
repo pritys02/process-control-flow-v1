@@ -1,38 +1,49 @@
 const routes = [
 	{
-		text: "Home",
-		icon: "home",
-		path: "/home",
+		text: "Dashboard",
+		icon: "bbyd-dashboard",
+		path: "/dashboard",
+		
+	},
+	{
+		text: "Data Load",
+		icon: "upload-to-cloud",
+		path: "/dataLoad",
+	},
+	{
+		text: "Master",
+		icon: "drop-down-list",
+		path:"/master",
+	  
 		subItems: [
 			{
-				icon: "attachment",
-				text: "Subitem 1 for Home",
-				path: "/subitem1",
+				text: "Type Of Control",
+				icon: "permission",
+				path: "/typeOfControl",
 			},
 			{
-				icon: "arrow-top",
-				text: "Subitem 2 for Home",
-				path: "/subitem2",
+				text: "Control Family",
+				icon: "customer-and-contacts",
+				path: "/controlFamily",
+			},
+			{
+				text: "Control Attribute",
+				icon: "customer-order-entry",
+				path: "/controlAttribute",
+			},
+			{
+				text: "Report",
+				icon: "manager-insight",
+				path: "/report",
+			},
+			{
+				text: "Control Logic",
+				icon: "wrench",
+				path: "/controlLogic",
 			},
 		],
 	},
-	{
-		text: "People",
-		icon: "group",
-		path: "/people",
-		subItems: [
-			{
-				icon: "collapse-group",
-				text: "Subitem for People",
-				path: "/SubitemPeople",
-			},
-		],
-	},
-	{
-		text: "Location",
-		icon: "locate-me",
-		path: "/location",
-	},
+	
 ];
 
 export default routes;

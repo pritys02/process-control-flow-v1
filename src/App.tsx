@@ -4,12 +4,17 @@ import { Page } from "@ui5/webcomponents-react";
 import { FlexBox } from "@ui5/webcomponents-react";
 import companyLogo from "./assets/images/irm.png";
 import userImage from "./assets/images/userImages/user1.jpg";
-
 import Navbar from "./components/Navbar";
 import SideNavbar from "./components/SideNavbar";
 import routes from "./lib/data";
-import RiskCard from "./components/RiskCard";
-import cardData from "./lib/cardData";
+import ControlAttribute from "./pages/controlAttribute";
+import ControlFamily from "./pages/controlFamily";
+import ControlLogic from "./pages/controlLogic";
+import Dashboard from "./pages/dashboard";
+import Report from "./pages/report";
+import TypeOfControl from "./pages/typeOfControl";
+import DataLoad from "./pages/dataLoad";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
 	const [theme, setTheme] = useState("sap_horizon");
@@ -50,15 +55,15 @@ function App() {
 					style={{
 						borderRadius: "6rem",
 					}}>
-					{cardData.map((card, index) => (
-						<RiskCard
-							key={index}
-							header={card.header}
-							icon={card.icon}
-							risk={card.risk}
-							desciption={card.desciption}
-						/>
-					))}
+<Routes>
+    <Route path='master/controlAttribute' element={<ControlAttribute />} />
+    <Route path='master/controlFamily' element={<ControlFamily />} />
+    <Route path='master/controlLogic' element={<ControlLogic />} />
+    <Route path='/dashboard' element={<Dashboard />} />
+    <Route path='/dataLoad' element={<DataLoad />} />
+    <Route path='master/report' element={<Report />} />
+    <Route path='master/typeOfControl' element={<TypeOfControl />} />
+</Routes>
 				</Page>
 			</FlexBox>
 		</div>
