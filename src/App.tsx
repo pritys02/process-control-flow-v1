@@ -55,15 +55,49 @@ function App() {
 					style={{
 						borderRadius: "6rem",
 					}}>
-<Routes>
-    <Route path='master/controlAttribute' element={<ControlAttribute />} />
-    <Route path='master/controlFamily' element={<ControlFamily />} />
-    <Route path='master/controlLogic' element={<ControlLogic />} />
-    <Route path='/dashboard' element={<Dashboard />} />
-    <Route path='/dataLoad' element={<DataLoad />} />
-    <Route path='master/report' element={<Report />} />
-    <Route path='master/typeOfControl' element={<TypeOfControl />} />
-</Routes>
+					<Routes>
+						{/* Dashboard routes */}
+						<Route
+							path="/dashboard"
+							element={<Dashboard />}
+						/>
+
+						<Route
+							path="/"
+							element={<Dashboard />}
+						/>
+
+						{/* Master routes */}
+						<Route
+							path="master/controlAttribute"
+							element={<ControlAttribute />}
+						/>
+
+						<Route
+							path="master/controlFamily"
+							element={<ControlFamily />}
+						/>
+
+						<Route
+							path="master/controlLogic"
+							element={<ControlLogic />}
+						/>
+
+						<Route
+							path="master/report"
+							element={<Report />}
+						/>
+						<Route
+							path="master/typeOfControl"
+							element={<TypeOfControl />}
+						/>
+
+						{/* Dataload routes */}
+						<Route
+							path="/dataLoad"
+							element={<DataLoad />}
+						/>
+					</Routes>
 				</Page>
 			</FlexBox>
 		</div>
