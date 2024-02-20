@@ -3,7 +3,6 @@ const routes = [
 		text: "Dashboard",
 		icon: "bbyd-dashboard",
 		path: "/dashboard",
-		
 	},
 	{
 		text: "Data Load",
@@ -13,8 +12,7 @@ const routes = [
 	{
 		text: "Master",
 		icon: "drop-down-list",
-		path:"/master",
-	  
+		path: "/master",
 		subItems: [
 			{
 				text: "Type Of Control",
@@ -43,7 +41,6 @@ const routes = [
 			},
 		],
 	},
-	
 ];
 
 export default routes;
