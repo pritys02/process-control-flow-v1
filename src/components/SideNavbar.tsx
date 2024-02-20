@@ -8,6 +8,7 @@ import "@ui5/webcomponents/dist/Assets.js";
 import "@ui5/webcomponents-fiori/dist/Assets.js";
 import "@ui5/webcomponents-react/dist/Assets.js";
 import "@ui5/webcomponents-icons/dist/AllIcons.js";
+import { useSidebar } from "../hooks/useSidebar";
 
 type SubItemProps = {
 	icon: string;
@@ -24,11 +25,11 @@ type ItemProps = {
 
 type SideNavbarProps = {
 	items: ItemProps[];
-	isCollapsed: boolean;
 };
 
-const SideNavbar = ({ items, isCollapsed }: SideNavbarProps) => {
+const SideNavbar = ({ items }: SideNavbarProps) => {
 	const navigate = useNavigate();
+	const { isSidebarCollapsed } = useSidebar();
 
 	const handleNavigation = (location: string) => {
 		navigate(location);
@@ -37,7 +38,7 @@ const SideNavbar = ({ items, isCollapsed }: SideNavbarProps) => {
 	return (
 		<SideNavigation
 			className="h-[92.40dvh] rounded-lg pb-1 mb-[0.3rem]"
-			collapsed={isCollapsed}>
+			collapsed={isSidebarCollapsed}>
 			{items.map((item, index) => (
 				<SideNavigationItem
 					key={index}

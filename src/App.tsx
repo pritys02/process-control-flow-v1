@@ -12,7 +12,6 @@ import RiskCard from "./components/RiskCard";
 import cardData from "./lib/cardData";
 
 function App() {
-	const [isCollapsed, setIsCollapse] = useState(false);
 	const [theme, setTheme] = useState("sap_horizon");
 
 	let bg: string;
@@ -32,7 +31,6 @@ function App() {
 				companyLogo={companyLogo}
 				userImage={userImage}
 				userName="John Doe"
-				callback={setIsCollapse}
 				themeSwitch={setTheme}
 			/>
 
@@ -44,10 +42,7 @@ function App() {
 					marginRight: "0.50rem",
 					marginBottom: "0.3rem",
 				}}>
-				<SideNavbar
-					items={routes}
-					isCollapsed={isCollapsed}
-				/>
+				<SideNavbar items={routes} />
 
 				<Page
 					backgroundDesign="Solid"
