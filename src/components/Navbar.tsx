@@ -14,6 +14,7 @@ import {
 } from "@ui5/webcomponents-react";
 import { useEffect, useRef, useState } from "react";
 import ThemeSwitchPopover from "./ThemeSwitchPopover";
+import { useSidebar } from "../hooks/useSidebar";
 
 type NavbarProps = {
 	companyName: string;
@@ -23,7 +24,6 @@ type NavbarProps = {
 	notificationCount?: string;
 	userName: string;
 	userImage: string;
-	callback: (isCollapsed: boolean) => void;
 	themeSwitch: (theme: string) => void;
 };
 
@@ -35,12 +35,11 @@ const Navbar = ({
 	notificationCount,
 	userName,
 	userImage,
-	callback,
 	themeSwitch,
 }: NavbarProps) => {
 	const [currentTheme, setCurrentTheme] = useState(getTheme);
-	const [isCollapseSidebar, setCollapseSidebar] = useState(true);
 	const popoverRef = useRef<ResponsivePopoverDomRef | null>(null);
+	const { setSidebarCollapsed } = useSidebar();
 
 	const handleThemeSwitch: ListPropTypes["onSelectionChange"] = (e) => {
 		const { targetItem } = e.detail;
@@ -57,8 +56,7 @@ const Navbar = ({
 	};
 
 	const handleNavMenuButtonclick = () => {
-		setCollapseSidebar((isCollapseSidebar) => !isCollapseSidebar);
-		callback(isCollapseSidebar);
+		setSidebarCollapsed((isCollapseSidebar) => !isCollapseSidebar);
 	};
 
 	useEffect(() => {

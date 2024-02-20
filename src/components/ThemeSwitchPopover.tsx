@@ -6,7 +6,7 @@ import {
 	ResponsivePopoverDomRef,
 	StandardListItem,
 } from "@ui5/webcomponents-react";
-import React from "react";
+import { MutableRefObject } from "react";
 
 const THEMES = [
 	{ key: "sap_horizon", value: "Morning Horizon (Light)" },
@@ -18,7 +18,7 @@ const THEMES = [
 type ThemeSwitchPopoverProps = {
 	currentTheme: string;
 	handleThemeSwitch: ListPropTypes["onSelectionChange"];
-	popoverRef: React.MutableRefObject<ResponsivePopoverDomRef | null>;
+	popoverRef: MutableRefObject<ResponsivePopoverDomRef | null>;
 };
 
 const ThemeSwitchPopover = ({
