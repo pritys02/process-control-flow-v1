@@ -41,9 +41,11 @@ const RiskCard = ({ header, icon, risk, desciption }: RiskCardProps) => {
 			}
 			style={{
 				width: "25rem",
+				padding: "0",
 				position: "relative",
 				borderRadius: "0.5rem",
-				margin: "1rem",
+				marginInline: "1rem",
+				marginBlock: "1rem",
 			}}>
 			<span
 				className={`rounded-full font-bold absolute text-white p-[10px] top-5 right-9 ${getRiskColor(

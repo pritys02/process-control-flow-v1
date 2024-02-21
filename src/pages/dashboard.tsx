@@ -1,5 +1,22 @@
+import { FlexBox } from "@ui5/webcomponents-react";
+import RiskCard from "../components/RiskCard";
+import cardData from "../lib/cardData";
 const Dashboard = () => {
-	return <div>Dashbaord</div>;
+	return (
+		<FlexBox wrap="NoWrap">
+			{cardData.map((card, index) => {
+				return (
+					<RiskCard
+						key={index}
+						header={card.header}
+						icon={card.icon}
+						risk={card.risk}
+						desciption={card.desciption}
+					/>
+				);
+			})}
+		</FlexBox>
+	);
 };
 
 export default Dashboard;

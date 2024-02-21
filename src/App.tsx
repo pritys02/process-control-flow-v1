@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import { Page } from "@ui5/webcomponents-react";
 import { FlexBox } from "@ui5/webcomponents-react";
@@ -15,6 +15,7 @@ import Report from "./pages/report";
 import TypeOfControl from "./pages/typeOfControl";
 import DataLoad from "./pages/dataLoad";
 import { Route, Routes } from "react-router-dom";
+import Loading from "./components/Loading";
 
 function App() {
 	const [theme, setTheme] = useState("sap_horizon");
@@ -27,79 +28,82 @@ function App() {
 		bg = "bg-gray-300";
 	}
 	return (
-		<div className={`overflow-hidden ${bg} relative transition-all`}>
-			<Navbar
-				companyName="TRP Global"
-				productName="Process Control Flow"
-				isNotifiction={true}
-				notificationCount="10"
-				companyLogo={companyLogo}
-				userImage={userImage}
-				userName="John Doe"
-				themeSwitch={setTheme}
-			/>
+		<div
+			className={`overflow-hidden ${bg} relative transition-all p-0 min-h-screen`}>
+			<Suspense fallback={<Loading />}>
+				<Navbar
+					companyName="TRP Global"
+					productName="Process Control Flow"
+					isNotifiction={true}
+					notificationCount="10"
+					companyLogo={companyLogo}
+					userImage={userImage}
+					userName="John Doe"
+					themeSwitch={setTheme}
+				/>
 
-			<FlexBox
-				style={{
-					height: "92dvh",
-					marginTop: "0.50rem",
-					columnGap: "0.50rem",
-					marginRight: "0.50rem",
-					marginBottom: "0.3rem",
-				}}>
-				<SideNavbar items={routes} />
-
-				<Page
-					backgroundDesign="Solid"
-					className="page transition-all"
+				<FlexBox
 					style={{
-						borderRadius: "6rem",
+						height: "92.5vh",
+						marginTop: "0.50rem",
+						columnGap: "0.50rem",
+						marginRight: "0.50rem",
+						marginBottom: "0.3rem",
+						borderRadius: "0.5rem",
 					}}>
-					<Routes>
-						{/* Dashboard routes */}
-						<Route
-							path="/dashboard"
-							element={<Dashboard />}
-						/>
+					<SideNavbar items={routes} />
 
-						<Route
-							path="/"
-							element={<Dashboard />}
-						/>
+					<Page
+						backgroundDesign="Solid"
+						style={{ paddingInline: "0", borderRadius: "0.5rem" }}>
+						<Suspense fallback={<Loading />}>
+							<Routes>
+								{/* Dashboard routes */}
+								<Route
+									path="/dashboard"
+									element={<Dashboard />}
+								/>
 
-						{/* Master routes */}
-						<Route
-							path="master/controlAttribute"
-							element={<ControlAttribute />}
-						/>
+								<Route
+									path="/"
+									element={<Dashboard />}
+								/>
 
-						<Route
-							path="master/controlFamily"
-							element={<ControlFamily />}
-						/>
+								{/* Master routes */}
+								<Route
+									path="master/controlAttribute"
+									element={<ControlAttribute />}
+								/>
 
-						<Route
-							path="master/controlLogic"
-							element={<ControlLogic />}
-						/>
+								<Route
+									path="master/controlFamily"
+									element={<ControlFamily />}
+								/>
 
-						<Route
-							path="master/report"
-							element={<Report />}
-						/>
-						<Route
-							path="master/typeOfControl"
-							element={<TypeOfControl />}
-						/>
+								<Route
+									path="master/controlLogic"
+									element={<ControlLogic />}
+								/>
 
-						{/* Dataload routes */}
-						<Route
-							path="/dataLoad"
-							element={<DataLoad />}
-						/>
-					</Routes>
-				</Page>
-			</FlexBox>
+								<Route
+									path="master/report"
+									element={<Report />}
+								/>
+								<Route
+									path="master/typeOfControl"
+									element={<TypeOfControl />}
+								/>
+
+								{/* Dataload routes */}
+								<Route
+									path="/dataLoad"
+									element={<DataLoad />}
+								/>
+							</Routes>
+						</Suspense>
+					</Page>
+				</FlexBox>
+			</Suspense>
 		</div>
 	);
 }
