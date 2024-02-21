@@ -32,7 +32,7 @@ const RiskCard = ({ header, icon, risk, desciption }: RiskCardProps) => {
 	const classes = useStyles();
 	return (
 		<Card
-			className={`hover:shadow-xl transition-all cursor-pointer ${classes.container}`}
+			className={`hover:shadow-xl transition-all rounded-[0.5rem] cursor-pointer ${classes.container}`}
 			header={
 				<CardHeader
 					avatar={<Icon name={icon} />}
@@ -40,15 +40,15 @@ const RiskCard = ({ header, icon, risk, desciption }: RiskCardProps) => {
 				/>
 			}
 			style={{
-				width: "25rem",
+				width: "30rem",
 				padding: "0",
 				position: "relative",
 				borderRadius: "0.5rem",
-				marginInline: "1rem",
+				marginInline: "1.12rem",
 				marginBlock: "1rem",
 			}}>
 			<span
-				className={`rounded-full font-bold absolute text-white p-[10px] top-5 right-9 ${getRiskColor(
+				className={`rounded-md font-bold absolute text-white p-[8px] top-5 right-9 ${getRiskColor(
 					Number(risk)
 				)}`}>
 				Risk : {risk}
