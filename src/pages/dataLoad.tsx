@@ -5,10 +5,10 @@ import FileUpload from "../components/FileUpload";
 const DataLoad = () => {
 	return (
 		<FlexBox
-			alignItems="Center"
+			alignItems="Start"
 			wrap="Wrap"
 			justifyContent="Center"
-			style={{ padding: "2rem" }}>
+			>
 			<div>
 				<SimulationDetails />
 			</div>

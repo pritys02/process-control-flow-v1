@@ -3,7 +3,7 @@ import RiskCard from "../components/RiskCard";
 import cardData from "../lib/cardData";
 const Dashboard = () => {
 	return (
-		<FlexBox wrap="NoWrap">
+		<FlexBox wrap="Wrap">
 			{cardData.map((card, index) => {
 				return (
 					<RiskCard

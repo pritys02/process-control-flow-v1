@@ -11,8 +11,7 @@ const SimulationDetails = () => {
 	return (
 		<Card
 			style={{
-				width: "80rem",
-				padding: "1rem",
+
 			}}>
 			<Table
 				stickyColumnHeader
