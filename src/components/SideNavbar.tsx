@@ -37,7 +37,7 @@ const SideNavbar = ({ items }: SideNavbarProps) => {
 
 	return (
 		<SideNavigation
-			className="h-[92.40dvh] rounded-lg pb-1 mb-[0.3rem]"
+			className="h-[93.5vh] rounded-lg pb-2 pl-1 mb-[0.3rem]"
 			collapsed={isSidebarCollapsed}>
 			{items.map((item, index) => (
 				<SideNavigationItem
