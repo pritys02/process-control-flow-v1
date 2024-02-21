@@ -5,91 +5,127 @@ import {
 	TableColumn,
 	TableRow,
 	Card,
+	Button,
+	Icon,
 } from "@ui5/webcomponents-react";
+import { simulateData } from "../lib/simulateData";
 
 const SimulationDetails = () => {
 	return (
-		<Card
-			style={{
-
-			}}>
+		<Card className="h-[45vh]">
 			<Table
+				className="h-full overflow-y-auto"
 				stickyColumnHeader
-				style={{ width: "100%", padding: "1rem" }}
+				style={{ width: "", padding: "1rem" }}
 				columns={
 					<>
 						<TableColumn style={{ width: "2rem" }}>
 							<Label>Sync ID</Label>
 						</TableColumn>
-						<TableColumn
-							minWidth={800}
-							popinText="Supplier">
+
+						<TableColumn>
 							<Label>Control Attribute Name</Label>
 						</TableColumn>
-						<TableColumn
-							demandPopin
-							minWidth={600}
-							popinText="Dimensions">
+
+						<TableColumn>
 							<Label>Report Name</Label>
 						</TableColumn>
-						<TableColumn
-							demandPopin
-							minWidth={600}
-							popinText="Weight">
+
+						<TableColumn>
 							<Label>Synced At</Label>
 						</TableColumn>
+
 						<TableColumn>
 							<Label>Synced By</Label>
 						</TableColumn>
+
 						<TableColumn>
-							<Label>Previw</Label>
+							<Label>Simulated At</Label>
 						</TableColumn>
+
+						<TableColumn>
+							<Label>Simulated By</Label>
+						</TableColumn>
+
+						<TableColumn>
+							<Label>Preview</Label>
+						</TableColumn>
+
 						<TableColumn>
 							<Label>View Dashboard</Label>
 						</TableColumn>
+
 						<TableColumn>
 							<Label>Simulate</Label>
 						</TableColumn>
 					</>
-				}
-				onLoadMore={function _a() {}}
-				onPopinChange={function _a() {}}
-				onRowClick={function _a() {}}
-				onSelectionChange={function _a() {}}>
-				<TableRow>
-					<TableCell>
-						<Label>Notebook Basic</Label>
-					</TableCell>
-					<TableCell>
-						<Label>Very Best Screens</Label>
-					</TableCell>
-					<TableCell>
-						<Label>30 x 18 x 3cm</Label>
-					</TableCell>
-					<TableCell>
-						<Label>4.2KG</Label>
-					</TableCell>
-					<TableCell>
-						<Label>956EUR</Label>
-					</TableCell>
-				</TableRow>
-				<TableRow>
-					<TableCell>
-						<Label>Notebook Basic 17HT-1001</Label>
-					</TableCell>
-					<TableCell>
-						<Label>Very Best Screens</Label>
-					</TableCell>
-					<TableCell>
-						<Label>29 x 17 x 3.1cm</Label>
-					</TableCell>
-					<TableCell>
-						<Label>4.5KG</Label>
-					</TableCell>
-					<TableCell>
-						<Label>1249EUR</Label>
-					</TableCell>
-				</TableRow>
+				}>
+				{simulateData.map((data, index) => (
+					<TableRow
+						style={{ padding: "1rem" }}
+						key={index}>
+						<TableCell
+							className="center-tabledata"
+							data-name="ID">
+							{data.id}
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="controlAttribute">
+							{data.controlAttributeName}
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="reportname">
+							{data.reportName}
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="syncAt">
+							{data.syncAt}
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="syncBy">
+							{data.syncedBy}
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="simulatedAt">
+							{data.isSimulated && data.simulateAt}
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="simulatedBy">
+							{data.isSimulated && data.simulatedBy}
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="previewBtn">
+							<Button>
+								<Icon name="detail-view" />
+							</Button>
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="dashboardBtn">
+							{data.isSimulated && (
+								<Button>
+									<Icon name="performance" />
+								</Button>
+							)}
+						</TableCell>
+						<TableCell
+							className="center-tabledata"
+							data-name="simulatedBtn">
+							{!data.isSimulated && (
+								<Button>
+									<Icon name="synchronize" />
+								</Button>
+							)}
+						</TableCell>
+					</TableRow>
+				))}
 			</Table>
 		</Card>
 	);
