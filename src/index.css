@@ -11,3 +11,9 @@
   box-sizing: border-box;
   color-scheme: light dark;
 }
+
+@layer components {
+  .center-tabledata{
+    @apply text-center pb-2 pt-2;
+  }
+}
