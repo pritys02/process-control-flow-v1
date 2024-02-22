@@ -4,22 +4,32 @@ import {
 	TableCell,
 	TableColumn,
 	TableRow,
-	Card,
 	Button,
 	Icon,
+	TableGrowingMode,
 } from "@ui5/webcomponents-react";
 import { simulateData } from "../lib/simulateData";
 
 const SimulationDetails = () => {
 	return (
-		<Card className="h-[45vh]">
+		<div
+			style={{
+				height: "25rem",
+				width: "100%",
+				overflow: "auto",
+				margin: "0",
+				borderRadius: "0.5rem",
+			}}>
 			<Table
-				className="h-full overflow-y-auto"
+				growing={TableGrowingMode.Scroll}
+				className="h-full"
+				onLoadMore={() => {
+					console.log("Load More");
+				}}
 				stickyColumnHeader
-				style={{ width: "", padding: "1rem" }}
 				columns={
 					<>
-						<TableColumn style={{ width: "2rem" }}>
+						<TableColumn>
 							<Label>Sync ID</Label>
 						</TableColumn>
 
@@ -127,7 +137,7 @@ const SimulationDetails = () => {
 					</TableRow>
 				))}
 			</Table>
-		</Card>
+		</div>
 	);
 };
 
