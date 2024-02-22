@@ -14,6 +14,6 @@
 
 @layer components {
   .center-tabledata{
-    @apply text-center pb-2 pt-2;
+    @apply text-center pb-2 pt-2 w-12;
   }
 }

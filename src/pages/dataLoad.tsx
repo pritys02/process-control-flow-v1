@@ -7,7 +7,6 @@ const DataLoad = () => {
 		<FlexBox
 			style={{ paddingBlock: "1rem", paddingInline: "1rem", margin: "1rem" }}
 			wrap="Wrap"
-			// justifyContent="SpaceBetween"
 			className="flex-col gap-2 md:flex-row">
 			<div>
 				<SimulationDetails />
